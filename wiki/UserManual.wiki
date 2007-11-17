@@ -2,7 +2,7 @@
 
 [http://code.google.com/p/gwt-diagrams/wiki/UserManual#Introduction Introduction]
 
-= Introduction =
+= [Introduction] =
 
 
 = Project configuration =
