@@ -1,0 +1,6 @@
+#summary gwt-diagrams changelog
+
+= gwt-diagrams-0.1-RC01 =
+
+	* Base structures (Connector, Connection, ConnectionDataCalculator, ...)
+	* Functionality (RectilinearTwoEndedConnection, BezierTwoEndedConnection)
