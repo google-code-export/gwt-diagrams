@@ -1,5 +1,5 @@
 #summary User manual for gwt-diagrams library
-#labels Phase-Implementation,Phase-Design,Phase-Deploy
+#labels Phase-Implementation,Phase-Design,Phase-Deploy,Deprecated
 
 = Introduction =
 
