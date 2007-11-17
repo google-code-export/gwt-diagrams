@@ -1,0 +1,33 @@
+Welcome,
+
+Compiled example is available under target/www/index.html
+
+
+I. gwt-diagrams-example build instructions:
+
+	1. Download and install Google Web Toolkit (http://code.google.com/webtoolkit/)
+	2. Edit build.properties and set path to GWT installation directory
+	3. Run ant build through command 'ant'
+	4. Output will be available in target/www directory
+	5. Open target/www/index.html in your browser
+	
+	
+II. Eclipse project setup:
+
+	1. Add in Eclipse classpath variable GWT_HOME pointing to GWT installation directory
+	2. Import project as Java Project
+	
+	
+III. Runing in hosted-mode:
+	
+	a) Through ant script:
+	
+		1. Run ant target: 'ant run'
+		
+	b) Through eclipse:
+	
+		1. Right click on gwt-diagrams-example.launch
+		2. Run As -> Open Run Dialog ...
+		3. Run
+
+		
