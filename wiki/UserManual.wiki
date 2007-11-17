@@ -1,8 +1,8 @@
 #summary User manual for gwt-diagrams library
+#labels Phase-Implementation,Phase-Design,Phase-Deploy
 
-[http://code.google.com/p/gwt-diagrams/wiki/UserManual#Introduction Introduction]
-
-= [Introduction] =
-
+= Introduction =
 
 = Project configuration =
+
+= Hello world =
