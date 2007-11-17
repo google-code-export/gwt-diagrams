@@ -1,0 +1,34 @@
+<module>
+
+	<inherits name='com.google.gwt.user.User'/>
+    
+    <stylesheet src='Diagrams.css'/>
+
+<!-- Canvas browsers -->
+   <replace-with class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurveCanvas">
+    <when-type-is class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurve"/>
+    <when-property-is name="user.agent" value="gecko"/>
+  </replace-with> 
+
+   <replace-with class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurveCanvas">
+    <when-type-is class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurve"/>
+    <when-property-is name="user.agent" value="gecko1_8"/>
+  </replace-with> 
+
+   <replace-with class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurveCanvas">
+    <when-type-is class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurve"/>
+    <when-property-is name="user.agent" value="safari"/>
+  </replace-with> 
+
+   <replace-with class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurveCanvas">
+    <when-type-is class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurve"/>
+    <when-property-is name="user.agent" value="opera"/>
+  </replace-with> 
+
+<!-- VML browsers -->
+   <replace-with class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurveVml">
+    <when-type-is class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurve"/>
+    <when-property-is name="user.agent" value="ie6"/>
+  </replace-with> 
+    
+</module>
