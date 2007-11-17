@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="gwt-diagrams" default="all" basedir=".">
+
+	<property file="build.properties"/>
+	<property name="gwt.diagrams.artifactId" value="gwt-diagrams"/>
+	<property name="gwt.diagrams.version" value="0.1-RC01"/>
+	<property name="gwt.diagrams.packaging" value="jar"/>
+	<property name="gwt.diagrams.artifactFileName" value="${gwt.diagrams.artifactId}-${gwt.diagrams.version}.${gwt.diagrams.packaging}"/>
+
+	<path id="project.class.path">
+		<pathelement path="${java.class.path}/"/>
+		<pathelement path="${gwt.lib.path}/gwt-user.jar"/>
+	</path>
+
+	<target name="compile">
+		<mkdir dir="target"/>
+		<mkdir dir="target/classes"/>
+		<javac srcdir="src" destdir="target/classes" includes="**" debug="on" debuglevel="lines,vars,source" source="1.4">
+			<classpath refid="project.class.path"/>
+		</javac>
+	</target>
+
+	<target name="revision">
+			<exec dir="." executable="svnversion" failifexecutionfails="false" outputproperty="svn.revision">
+				<arg value="."/>
+			</exec>
+			<property name="svn.revision" value="${svn.revision}"/>
+			<echo message="REVISION=${svn.revision}" />
+	</target>
+	
+	<target name="package" depends="compile,revision" description="Package up gwt-diagrams as a jar">
+		<tstamp>
+		   <format property="build.time" pattern="dd-MM-yyyy HH:mm" />
+		</tstamp>
+		<jar destfile="target/${gwt.diagrams.artifactFileName}">
+			<fileset dir="target/classes">
+				<include name="**/*.class" />
+			</fileset>
+			<fileset dir="src">
+				<include name="**" />
+			</fileset>
+			<manifest>
+				<attribute name="Artifact-Id" value="${gwt.diagrams.artifactId}" />
+				<attribute name="Artifact-Version" value="${gwt.diagrams.version}" />
+				<attribute name="Svn-Revision" value="${svn.revision}" />
+				<attribute name="Build-Time" value="${build.time}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="target" includeemptydirs="true" />
+	</target>
+
+	<target name="all" depends="package"/>
+
+</project>
