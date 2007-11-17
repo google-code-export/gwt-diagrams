@@ -2,5 +2,5 @@
 
 = gwt-diagrams-0.1-RC01 =
 
-	* Base structures (Connector, Connection, ConnectionDataCalculator, ...)
-	* Functionality (RectilinearTwoEndedConnection, BezierTwoEndedConnection)
+	* Base structures (Connector, Connection, !ConnectionDataCalculator, ...)
+	* Functionality (!RectilinearTwoEndedConnection, !BezierTwoEndedConnection)
