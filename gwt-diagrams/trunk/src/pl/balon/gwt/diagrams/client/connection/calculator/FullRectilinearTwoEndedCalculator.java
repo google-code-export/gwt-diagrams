@@ -103,10 +103,11 @@ public class FullRectilinearTwoEndedCalculator implements ConnectionDataCalculat
 		} else if( canMove(directions[0], 0, vertical, false) && canMove(directions[1], 1, vertical, false) ){
 			n1 = s11.move(Direction.DOWN, vertical/2 );
 			n2 = new Point(s21.left, n1.top);
-		} else {
-			//??
-			GWT.log("??", null);
 		}
+//		} else {
+// We are silent, nobody notice that inconsistence ;)				
+//			GWT.log("??", null);
+//		}
 		
 		data.getPoints().add(s1);
 		data.getPoints().add(s11);

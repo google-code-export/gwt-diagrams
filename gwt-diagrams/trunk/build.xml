@@ -3,7 +3,7 @@
 
 	<property file="build.properties"/>
 	<property name="gwt.diagrams.artifactId" value="gwt-diagrams"/>
-	<property name="gwt.diagrams.version" value="0.1-RC01"/>
+	<property name="gwt.diagrams.version" value="0.1-RC02"/>
 	<property name="gwt.diagrams.packaging" value="jar"/>
 	<property name="gwt.diagrams.artifactFileName" value="${gwt.diagrams.artifactId}-${gwt.diagrams.version}.${gwt.diagrams.packaging}"/>
 
