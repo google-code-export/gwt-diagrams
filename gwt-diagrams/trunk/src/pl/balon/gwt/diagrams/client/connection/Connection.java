@@ -18,6 +18,8 @@ package pl.balon.gwt.diagrams.client.connection;
 
 import pl.balon.gwt.diagrams.client.connector.Connector;
 
+import com.google.gwt.user.client.ui.AbsolutePanel;
+
 /**
  * Interface representing connection object
  * 
@@ -42,4 +44,11 @@ public interface Connection {
 	 */
 	public abstract void update();
 
+	/**
+	 * Appends connection widget to panel
+	 * 
+	 * @param panel AbsolutePanel
+	 */
+	public abstract void appendTo(AbsolutePanel panel);
+	
 }

@@ -50,7 +50,6 @@ public class RectilinearTwoEndedConnection extends AbstractConnection {
 		}
 		setElement(DOM.createDiv());
 		addStyleName("gwt-diagrams-connection");
-		update();
 	}
 
 	/**

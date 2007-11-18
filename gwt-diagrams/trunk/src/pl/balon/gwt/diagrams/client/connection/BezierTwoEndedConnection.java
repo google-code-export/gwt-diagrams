@@ -49,8 +49,6 @@ public class BezierTwoEndedConnection extends AbstractConnection {
 		}
 		setElement(curve.getElement());
 		addStyleName("gwt-diagrams-connection");
-// TODO BezierCurveVml bug?		
-//		update();
 	}
 
 	/**

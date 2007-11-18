@@ -33,13 +33,18 @@ public class BezierCurveCanvas extends BezierCurve {
 	 * Private constructor.
 	 * Do not instantiate directly @see BezierCurve
 	 */
-	private BezierCurveCanvas() {
+	protected BezierCurveCanvas() {
 		// Do not instantiate directly
 	}
 	
-	private Element canvas = DOM.createElement("canvas");
+	private Element canvas;
 
 	{
+		initCanvas();
+	}
+
+	protected void initCanvas(){
+		this.canvas = DOM.createElement("canvas");
 		String prev = DOM.getElementAttribute(canvas, "class");
 		DOM.setElementAttribute(canvas, "class", prev + " gwt-diagrams-canvas");
 	}
@@ -61,6 +66,8 @@ public class BezierCurveCanvas extends BezierCurve {
 		DOM.setStyleAttribute(canvas, "top", Integer.toString(realStart.top));
 		DOM.setElementAttribute(canvas, "width", Integer.toString(width+size*2));
 		DOM.setElementAttribute(canvas, "height", Integer.toString(height+size*2));
+		DOM.setStyleAttribute(canvas, "width", Integer.toString(width+size*2));
+		DOM.setStyleAttribute(canvas, "height", Integer.toString(height+size*2));
 		
 		drawImpl(
 				p1.move(realStart.negative()),
@@ -90,7 +97,6 @@ public class BezierCurveCanvas extends BezierCurve {
 	    	p2.@pl.balon.gwt.diagrams.client.connection.data.Point::top);
 	    ctx.stroke();
 
-	  
 	}-*/;
 	
 	/**

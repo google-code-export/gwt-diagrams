@@ -25,6 +25,7 @@ import pl.balon.gwt.diagrams.client.connection.calculator.ConnectionDataCalculat
 import pl.balon.gwt.diagrams.client.connection.data.ConnectionData;
 import pl.balon.gwt.diagrams.client.connector.Connector;
 
+import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -112,6 +113,14 @@ public abstract class AbstractConnection extends Widget implements Connection {
 	 * @param data connection data
 	 */
 	protected abstract void update(ConnectionData data);
+
+	/**
+	 * @see pl.balon.gwt.diagrams.client.connection.Connection#appendTo(com.google.gwt.user.client.ui.AbsolutePanel)
+	 */
+	public void appendTo(AbsolutePanel panel) {
+		panel.add(this);
+		update();
+	}
 	
 	/**
 	 * @return new connection data calculator

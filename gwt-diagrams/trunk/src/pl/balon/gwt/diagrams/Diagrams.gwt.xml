@@ -20,7 +20,7 @@
     <when-property-is name="user.agent" value="safari"/>
   </replace-with> 
 
-   <replace-with class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurveCanvas">
+   <replace-with class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurveCanvasOpera">
     <when-type-is class="pl.balon.gwt.diagrams.client.common.bezier.BezierCurve"/>
     <when-property-is name="user.agent" value="opera"/>
   </replace-with> 
