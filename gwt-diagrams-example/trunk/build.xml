@@ -2,6 +2,7 @@
 <project name="gwt-diagrams-example" default="all" basedir=".">
 
 	<property file="build.properties"/>
+	<property name="version" value="0.1-RC02"/>
 
 	<path id="project.class.path">
 		<pathelement path="${java.class.path}/"/>
@@ -36,7 +37,7 @@
 	</target>
 
 	<target name="package" depends="clean,gwt-compile">
-		<zip destfile="target/gwt-diagrams-example-0.1-RC01.zip">
+		<zip destfile="target/gwt-diagrams-example-${version}.zip">
 			<fileset dir=".">
 				<include name="target/**/*"/>
 				<include name="src/**/*"/>
@@ -58,7 +59,14 @@
 	</target>
 
 	<target name="clean">
-		<delete dir="target" includeemptydirs="true" />
+		<delete>
+			<fileset dir=".">
+				<include name="target/*"/>
+				<include name="target/**/*"/>
+				<exclude name="target/www/*"/>
+				<exclude name="target/www/**/*"/>
+			</fileset>
+		</delete>
 		<delete dir=".gwt-cache" includeemptydirs="true" />
 		<delete dir="tomcat" includeemptydirs="true" />
 	</target>
