@@ -1,5 +1,14 @@
 #summary gwt-diagrams changelog
 
+
+= gwt-diagrams-0.1-RC02 =
+	* #3 Cross browser tests and bug fixes:
+		- Opera 9 (win) tested and bug fixed
+		- Safari 3 (win) tested and bug fixed
+	* #6 Exception: Illegal state for right angled connection
+	* #7 FullRectilinearTwoEndedCalculator situation logged in hosted mode as ??
+
+
 = gwt-diagrams-0.1-RC01 =
 
 	* Base structures (Connector, Connection, !ConnectionDataCalculator, ...)
