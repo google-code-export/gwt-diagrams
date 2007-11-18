@@ -59,14 +59,7 @@
 	</target>
 
 	<target name="clean">
-		<delete>
-			<fileset dir=".">
-				<include name="target/*"/>
-				<include name="target/**/*"/>
-				<exclude name="target/www/*"/>
-				<exclude name="target/www/**/*"/>
-			</fileset>
-		</delete>
+		<delete dir="target" defaultexcludes="true" />
 		<delete dir=".gwt-cache" includeemptydirs="true" />
 		<delete dir="tomcat" includeemptydirs="true" />
 	</target>
