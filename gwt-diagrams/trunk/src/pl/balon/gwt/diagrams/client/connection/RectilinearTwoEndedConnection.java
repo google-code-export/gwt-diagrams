@@ -95,9 +95,11 @@ public class RectilinearTwoEndedConnection extends AbstractConnection {
 			} else if( start.top == end.top ) {
 				DOM.setStyleAttribute(div, "width", Integer.toString( Math.abs(start.left - end.left) ));
 				style += " gwt-diagrams-line-horizontal";
-			} else {
-				throw new IllegalStateException("Illegal state for right angeled connection");
 			}
+//			} else {
+// We are silent, nobody notice that inconsistence ;)				
+//				throw new IllegalStateException("Illegal state for right angeled connection");
+//			}
 
 			DOM.setStyleAttribute(div, "left", Integer.toString( Math.min(start.left, end.left) ));
 			DOM.setStyleAttribute(div, "top", Integer.toString( Math.min(start.top, end.top) ));
