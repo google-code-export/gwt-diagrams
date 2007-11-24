@@ -76,4 +76,15 @@ public abstract class BaseExamplesEntryPoint implements EntryPoint {
 	 */
 	protected abstract void onLoad();
 
+	protected native String getUrlParam( String name )/*-{
+		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  		var regexS = "[\\?&]"+name+"=([^&#]*)";
+  		var regex = new RegExp( regexS );
+  		var results = regex.exec( $wnd.location.href );
+  		if( results == null )
+    		return "";
+  		else
+    		return results[1];
+	}-*/;
+	
 }

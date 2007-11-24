@@ -55,7 +55,11 @@ public class GwtDiagramsExample extends BaseExamplesEntryPoint {
 			}
 		});
 
-		tabs.selectTab(0);
+		String tab = getUrlParam("tab");
+		if( tab==null || "".equals(tab) ){
+			tab = "0";
+		}
+		tabs.selectTab(Integer.parseInt(tab));
 
 	}
 
