@@ -18,8 +18,6 @@ package pl.balon.gwt.diagrams.client.connection.calculator;
 
 import java.util.List;
 
-import com.google.gwt.core.client.GWT;
-
 import pl.balon.gwt.diagrams.client.connection.data.ConnectionData;
 import pl.balon.gwt.diagrams.client.connection.data.Point;
 import pl.balon.gwt.diagrams.client.connector.Connector;
