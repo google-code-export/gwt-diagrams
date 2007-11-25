@@ -37,7 +37,7 @@ public class BezierTwoEndedConnection extends AbstractConnection {
 	 * Represents bezier curve. Implementation depends on browser type.
 	 * Instantiated through deferred binding
 	 */
-	private BezierCurve curve = (BezierCurve) GWT.create(BezierCurve.class);
+	protected BezierCurve curve = (BezierCurve) GWT.create(BezierCurve.class);
 	
 	/**
 	 * Constructs bezier connection
