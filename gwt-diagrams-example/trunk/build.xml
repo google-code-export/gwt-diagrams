@@ -2,7 +2,7 @@
 <project name="gwt-diagrams-example" default="all" basedir=".">
 
 	<property file="build.properties"/>
-	<property name="version" value="0.1-RC02"/>
+	<property name="version" value="0.1-RC03"/>
 
 	<path id="project.class.path">
 		<pathelement path="${java.class.path}/"/>
