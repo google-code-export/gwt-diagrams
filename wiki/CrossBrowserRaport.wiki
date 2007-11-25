@@ -1,5 +1,5 @@
 #summary Cross browser tests raport (25.11.2007)
-#labels Phase-QA
+#labels Phase-QA,Featured
 
 = Full tests =
 
