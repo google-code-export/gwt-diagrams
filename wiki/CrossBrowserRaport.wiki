@@ -1,0 +1,12 @@
+#summary Cross browser tests raport
+#labels Phase-QA
+
+= Full tests =
+
+
+
+
+= Browsershots tests =
+
+[http://browsershots.org/http://kolos.math.uni.lodz.pl/%7Ebalon/gwt-diagrams-demo/pl.balon.gwt.diagramsexample.GwtDiagramsExample/GwtDiagramsExample.html rectilinear]
+[http://browsershots.org/http://kolos.math.uni.lodz.pl/~balon/gwt-diagrams-demo/pl.balon.gwt.diagramsexample.GwtDiagramsExample/GwtDiagramsExample.html?tab=1 bezier]
