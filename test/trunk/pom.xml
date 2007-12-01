@@ -21,6 +21,16 @@
   <description>
     System rozliczeniowy
   </description>
+<pluginRepositories>
+    <pluginRepository>
+        <id>tlc</id>
+        <name>TLC Repository</name>
+        <url>http://commons.ucalgary.ca/pub/m2</url>
+    </pluginRepository>
+</pluginRepositories>
+<scm>
+	<developerConnection>scm:svn:http://gwt-diagrams.googlecode.com/svn/test/trunk/</developerConnection>
+</scm>
   <build>
     <plugins>
       <plugin>
@@ -29,6 +39,37 @@
           <source>1.5</source>
           <target>1.5</target>
         </configuration>
+      </plugin>
+	  <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+ 	      <finalName>billing-${buildNumber}</finalName>
+ 	      <appendAssemblyId>false</appendAssemblyId>
+          <descriptors>
+            <descriptor>src/assemble/assemble.xml</descriptor>
+          </descriptors>
+        </configuration>
+      </plugin>      
+      <plugin>
+	      <groupId>org.codehaus.mojo</groupId>
+	      <artifactId>maven-buildnumber-plugin</artifactId>
+	      <version>0.9.6</version>
+	      <executions>
+	        <execution>
+	          <phase>validate</phase>        
+	          <goals>
+	            <goal>create</goal>
+	          </goals>
+	        </execution>
+	      </executions>
+	      <configuration>
+	        <doCheck>false</doCheck>
+	        <doUpdate>false</doUpdate>
+			  <format>{0,date,yyyyMMddHHmmss}</format>
+			  <items>
+			    <item>timestamp</item>
+			  </items>
+	      </configuration>
       </plugin>
     </plugins>
   </build>
