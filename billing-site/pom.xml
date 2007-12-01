@@ -1,0 +1,29 @@
+<?xml version="1.0"?><project>
+  <parent>
+    <artifactId>billing</artifactId>
+    <groupId>pl.balon.eai.billing</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pl.balon.eai.billing</groupId>
+  <artifactId>billing-site</artifactId>
+  <name>Maven</name>
+  <version>1.0-SNAPSHOT</version>
+  <inceptionYear>2007</inceptionYear>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <locales>en</locales>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <!-- distributionManagement>
+    <site>
+      <id>website</id>
+      <url>scp://webhost.company.com/www/website</url>
+    </site>
+  </distributionManagement -->
+</project>
