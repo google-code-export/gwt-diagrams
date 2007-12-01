@@ -1,0 +1,12 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+    <persistence-unit name="pu1">
+        <jta-data-source>jdbc/__default</jta-data-source>
+        <properties>
+          <!--Use the java2db feature -->
+          <property name="toplink.ddl-generation" value="drop-and-create-tables"/>
+          <!-- Generate the sql specific to Derby database -->
+          <property name="toplink.target-database"
+              value="Derby"/>
+        </properties>
+    </persistence-unit>
+</persistence>

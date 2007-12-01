@@ -1,0 +1,10 @@
+<projectDescription>
+  <name>billing-ear</name>
+  <comment>System rozliczeniowy</comment>
+  <projects>
+    <project>billing-ejb</project>
+    <project>billing-web</project>
+  </projects>
+  <buildSpec/>
+  <natures/>
+</projectDescription>
