@@ -32,6 +32,9 @@
 		<developerConnection>
 			scm:svn:http://gwt-diagrams.googlecode.com/svn/test/trunk/
 		</developerConnection>
+		<connection>
+			scm:svn:http://gwt-diagrams.googlecode.com/svn/test/trunk/
+		</connection>
 	</scm>
 	<build>
 		<plugins>
