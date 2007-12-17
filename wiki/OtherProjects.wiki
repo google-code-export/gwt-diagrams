@@ -1,4 +1,5 @@
 #summary Other web diagramming projects
 
-  * [http://snipplr.com/view/1950/graph-javascript-framework-version-001/ Graph JS], [http://redsquirrel.com/dave/work/webdep/ sample] 
-  * [http://www.openjacob.org/draw2d.html Open-jACOB Draw2D], [http://www.openjacob.org/draw2d/normal/connection_router/index.html sample]
+  * [http://snipplr.com/view/1950/graph-javascript-framework-version-001/ Graph JS] - [http://redsquirrel.com/dave/work/webdep/ sample] 
+  * [http://www.openjacob.org/draw2d.html Open-jACOB Draw2D] - [http://www.openjacob.org/draw2d/normal/connection_router/index.html sample]
+  * [http://javascript.neyric.com/wireit/ WireIt] - [http://javascript.neyric.com/wireit/test/planarGame/planarGame.html sample]
