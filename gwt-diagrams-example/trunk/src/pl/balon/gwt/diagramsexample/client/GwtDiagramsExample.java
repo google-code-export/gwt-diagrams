@@ -18,6 +18,7 @@ package pl.balon.gwt.diagramsexample.client;
 
 import pl.balon.gwt.diagramsexample.client.examples.AbstractConnectionsExample;
 import pl.balon.gwt.diagramsexample.client.examples.BezierExample;
+import pl.balon.gwt.diagramsexample.client.examples.DiagramBuilderExample;
 import pl.balon.gwt.diagramsexample.client.examples.RectilinearExample;
 import pl.balon.gwt.diagramsexample.client.examples.StraightConnectionsExample;
 
@@ -41,6 +42,7 @@ public class GwtDiagramsExample extends BaseExamplesEntryPoint {
 		tabs.add(new RectilinearExample(), "Rectilinear");
 		tabs.add(new BezierExample(), "Bezier");
 		tabs.add(new StraightConnectionsExample(), "Straight");
+		tabs.add(new DiagramBuilderExample(), "Diagram builder");
 
 		tabs.addTabListener(new TabListener() {
 			public boolean onBeforeTabSelected(SourcesTabEvents sender,

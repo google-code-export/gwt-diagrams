@@ -48,7 +48,7 @@ public abstract class AbstractConnectionsExample extends AbstractExample {
 	/**
 	 * DnD controller
 	 */
-	private DragController dragController;
+	protected final DragController dragController;
 
 	/**
 	 * List of connections presented in this example
@@ -96,6 +96,15 @@ public abstract class AbstractConnectionsExample extends AbstractExample {
 	protected void add(AbstractConnection c){
 		getArea().add(c);
 		connections.add(c);
+	}
+	
+	/**
+	 * Removes connection from examples panel.
+	 * 
+	 * @param c
+	 */
+	protected void remove(Connection c){
+		connections.remove(c);
 	}
 	
 	/**
