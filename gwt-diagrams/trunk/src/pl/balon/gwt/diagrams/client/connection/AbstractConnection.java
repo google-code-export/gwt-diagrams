@@ -86,7 +86,7 @@ public abstract class AbstractConnection extends Widget implements Connection {
 	public void disconnect(Connector c){
 		int index = connected.indexOf(c);
 		if( index > -1 ){
-			connected.listIterator(index).remove();
+			connected.remove(c);
 			c.disconnect(this);
 		}
 	}

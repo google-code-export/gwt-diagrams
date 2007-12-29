@@ -46,10 +46,10 @@ public class FullRectilinearTwoEndedCalculator implements ConnectionDataCalculat
 		Direction[] directions = computeDirections(c1, c2);
 		
 		Point s1 = c1.pointOnBorder(directions[0]);
-		Point s11 = s1.move(directions[0], 10);
+		Point s11 = s1.move(directions[0], 10); // TODO paremetrize it
 		
 		Point s2 = c2.pointOnBorder(directions[1]);
-		Point s21 = s2.move(directions[1], 10);
+		Point s21 = s2.move(directions[1], 10); // TODO paremetrize it
 		
 		int horizontal = s21.left - s11.left;
 		int vertical = s21.top - s11.top;
@@ -69,6 +69,8 @@ public class FullRectilinearTwoEndedCalculator implements ConnectionDataCalculat
 		
 		// else if h - mozliwy h - mozliwy
 		// else if v - mozliwy v - mozliwy
+		// else if h - mozliwy v - mozliwy
+		// else if v - mozliwy h - mozliwy
 		// else ?
 
 		if( equalDirection(directions[0], 0, horizontal, true) && equalDirection(directions[1], 1, horizontal, true) ){
@@ -87,20 +89,24 @@ public class FullRectilinearTwoEndedCalculator implements ConnectionDataCalculat
 			n1 = s11.move(directions[0], Math.abs(horizontal/2) );
 			n2 = new Point(n1.left, s21.top);
 		} else if( canMove(directions[0], 0, horizontal, true) && equalDirection(directions[1], 1, horizontal, true) ){
-			n1 = s11.move(directions[0], Math.abs(horizontal/2) );
-			n2 = new Point(n1.left, s21.top);
+			n2 = s21.move(directions[1], Math.abs(horizontal/2) );
+			n1 = new Point(n2.left, s11.top);
 		} else if( equalDirection(directions[0], 0, vertical, false) && canMove(directions[1], 1, vertical, false) ){
 			n1 = s11.move(directions[0], Math.abs(vertical/2) );
 			n2 = new Point(s21.left, n1.top);
 		} else if( canMove(directions[0], 0, vertical, false) && equalDirection(directions[1], 1, vertical, false) ){
-			n1 = s11.move(directions[0], Math.abs(vertical/2) );
-			n2 = new Point(s21.left, n1.top);
+			n2 = s21.move(directions[1], Math.abs(vertical/2) );
+			n1 = new Point(s11.left, n2.top);
 		} else if( canMove(directions[0], 0, horizontal, true) && canMove(directions[1], 1, horizontal, true) ){
 			n1 = s11.move(Direction.RIGHT, horizontal/2 );
 			n2 = new Point(n1.left, s21.top);
 		} else if( canMove(directions[0], 0, vertical, false) && canMove(directions[1], 1, vertical, false) ){
 			n1 = s11.move(Direction.DOWN, vertical/2 );
 			n2 = new Point(s21.left, n1.top);
+		} else if( canMove(directions[0], 0, horizontal, true) && canMove(directions[1], 1, vertical, false) ){
+			n1 = s11.move(Direction.RIGHT, horizontal);
+		} else if( canMove(directions[0], 0, vertical, false) && canMove(directions[1], 1, horizontal, true) ){
+			n1 = s11.move(Direction.DOWN, vertical );
 		}
 //		} else {
 // We are silent, nobody notice that inconsistence ;)				

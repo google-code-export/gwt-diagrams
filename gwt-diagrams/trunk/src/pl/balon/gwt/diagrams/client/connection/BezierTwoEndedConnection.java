@@ -25,6 +25,7 @@ import pl.balon.gwt.diagrams.client.connection.data.Point;
 import pl.balon.gwt.diagrams.client.connector.Connector;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.Element;
 
 /**
  * Bezier connection widget.
@@ -51,6 +52,10 @@ public class BezierTwoEndedConnection extends AbstractConnection {
 		addStyleName("gwt-diagrams-connection");
 	}
 
+	public Element getElement() {
+		return curve.getElement();
+	}
+	
 	/**
 	 * Constructs bezier connection
 	 */

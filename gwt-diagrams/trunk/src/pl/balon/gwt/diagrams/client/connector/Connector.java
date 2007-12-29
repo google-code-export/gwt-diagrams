@@ -15,6 +15,8 @@
  */
 package pl.balon.gwt.diagrams.client.connector;
 
+import java.util.Collection;
+
 import pl.balon.gwt.diagrams.client.connection.Connection;
 import pl.balon.gwt.diagrams.client.connection.data.Point;
 
@@ -30,6 +32,11 @@ public interface Connector {
 	 * Disconnects connector from connection
 	 */
 	public void disconnect(Connection c);
+
+	/**
+	 * Disconnects connector from all connections
+	 */
+	public void disconnect();
 
 	/**
 	 * Connects to connection
@@ -82,5 +89,10 @@ public interface Connector {
 	 * @return
 	 */
 	public Point pointOnBorder(Direction d);
+
+	/**
+	 * @return Collection of all connections
+	 */
+	public Collection/*<Connection>*/ getConnections();
 
 }

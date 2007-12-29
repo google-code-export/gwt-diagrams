@@ -16,6 +16,7 @@
 
 package pl.balon.gwt.diagrams.client.connector;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -45,6 +46,15 @@ public abstract class AbstractConnector implements Connector {
 	}
 
 	/**
+	 * @see pl.balon.gwt.diagrams.client.connector.Connector#disconnect()
+	 */
+	public void disconnect() {
+		for (Iterator i = connections.iterator(); i.hasNext();) {
+			disconnect((Connection) i.next());
+		}
+	}
+
+	/**
 	 * @see pl.balon.gwt.diagrams.client.connector.Connector#connect(pl.balon.gwt.diagrams.client.connection.Connection)
 	 */
 	public void connect(Connection c) {
@@ -68,6 +78,10 @@ public abstract class AbstractConnector implements Connector {
 		}
 	}
 
+	public Collection/*<Connection>*/ getConnections(){
+		return connections;
+	}
+	
 	/**
 	 * @see pl.balon.gwt.diagrams.client.connector.Connector#getConnectionPoint(pl.balon.gwt.diagrams.client.connector.Direction)
 	 */

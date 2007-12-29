@@ -32,8 +32,6 @@ public class BezierCurveVml extends BezierCurve {
 
 	private Element div = DOM.createDiv();
 	
-	private Element element = div;
-	
 	private Element vmlGroup;
 
 	private Element vmlCurve;
@@ -58,7 +56,8 @@ public class BezierCurveVml extends BezierCurve {
 		DOM.setElementAttribute(vmlCurve, "class", "gwt-diagrams-vml-curve");
 		DOM.appendChild(RootPanel.get().getElement(), vmlGroup); // hack :(
 		
-		DOM.appendChild(RootPanel.get().getElement(), styledDiv);
+		DOM.appendChild(RootPanel.get().getElement(), styledDiv); // hack :(
+		DOM.setStyleAttribute(styledDiv, "display", "none");
 		DOM.setElementProperty(styledDiv, "className", "gwt-diagrams-vml-curve");
 
 		DOM.setElementAttribute(vmlCurve, "strokecolor", getComputedStyle(styledDiv, "color"));
@@ -84,7 +83,8 @@ public class BezierCurveVml extends BezierCurve {
 
 		if( !appendedToParent ) {
 			DOM.appendChild(DOM.getParent(div), vmlGroup);
-			element = vmlGroup;
+			DOM.removeChild(DOM.getParent(div), div);
+			div = null;
 			appendedToParent = true;
 		}
 		
@@ -115,7 +115,11 @@ public class BezierCurveVml extends BezierCurve {
 	 * @see pl.balon.gwt.diagrams.client.common.bezier.BezierCurve#getElement()
 	 */
 	public Element getElement() {
-		return element;
+		if( appendedToParent ) {
+			return vmlCurve;
+		} else {
+			return div;
+		}
 	}
 
 	private native boolean initDocument()/*-{

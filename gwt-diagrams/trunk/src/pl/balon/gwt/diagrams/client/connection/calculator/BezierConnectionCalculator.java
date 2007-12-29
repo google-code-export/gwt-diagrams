@@ -47,9 +47,12 @@ public class BezierConnectionCalculator implements ConnectionDataCalculator {
 		Point p1 = c1.pointOnBorder(d[0]);
 		Point p2 = c2.pointOnBorder(d[1]);
 		
-		Point b1 = p1.move(d[0], 50); // TODO read from css?
-		Point b2 = p2.move(d[1], 50); // TODO read from css?
-		
+		Point b1 = p1.move(d[0], 50); // TODO parametrize it?
+		Point b2 = p2.move(d[1], 50); // TODO parametrize it?
+
+//		Point b1 = p1.move(d[0], 3*(d[0].isHorizontal() ? c1.getHeight() : c1.getWidth())); 
+//		Point b2 = p2.move(d[1], 3*(d[1].isHorizontal() ? c2.getHeight() : c2.getWidth())); 
+
 		BezierConnectionData data = new BezierConnectionData(
 				new Point[]{p1, p2},
 				new Point[]{b1, b2});
