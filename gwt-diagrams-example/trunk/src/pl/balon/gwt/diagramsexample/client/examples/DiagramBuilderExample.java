@@ -49,7 +49,6 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.KeyboardListener;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RadioButton;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -241,7 +240,7 @@ public class DiagramBuilderExample extends AbstractConnectionsExample {
 		Map nodes = new HashMap();
 		
 		public ToolboxDragController(final DropController dropController, final DragController nodesDragController) {
-			super(RootPanel.get(), false);
+			super(getArea(), false);
 	        setDragProxyEnabled(true);
 	        registerDropController(dropController);
 	        
