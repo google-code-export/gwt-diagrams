@@ -1,6 +1,11 @@
 #summary gwt-diagrams changelog
 #labels Featured
 
+= gwt-diagrams-0.1-RC03 =
+	* #9 Straight connections
+	* #11 Extend demo/examples ('Diagrams builder')
+        * Bezier/Straight - canvas remove bug fixed
+        * Bezier/Straight - canvas z-index bug fixed
 
 = gwt-diagrams-0.1-RC02 =
 	* #3 Cross browser tests and bug fixes:
