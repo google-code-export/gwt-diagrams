@@ -4,7 +4,7 @@
 
 .gwt-diagrams-canvas {
 	position: absolute;
-	z-index: 0;
+	z-index: -1;
 	color: black;
 }
 
