@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="gwt-diagrams-example" default="all" basedir=".">
+
+	<property file="build.properties"/>
+	<property name="version" value="0.1"/>
+
+	<path id="project.class.path">
+		<pathelement path="${java.class.path}/"/>
+		<pathelement location="src"/>
+		<fileset dir="lib">
+		    <include name="*.jar"/>
+		</fileset>
+		<fileset dir="${gwt.lib.path}">
+		    <include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="gwt-compile">
+		<mkdir dir="target"/>
+		<property name="cp" refid="project.class.path"/>
+		<java fork="true" classname="com.google.gwt.dev.GWTCompiler" classpath="${cp}">
+			<arg line="-out target/www pl.balon.gwt.diagramsexample.GwtDiagramsExample"/>
+		</java>
+		<move file="target/www/pl.balon.gwt.diagramsexample.GwtDiagramsExample/index.html" todir="target/www"/>
+		<copy todir="target/www/source">
+			<fileset dir="src/pl/balon/gwt/diagramsexample/client/examples">
+				<include name="*.java"/>
+			</fileset>
+		</copy>		
+	</target>
+
+	<target name="gwt-shell">
+		<property name="cp" refid="project.class.path"/>
+		<java fork="true" classname="com.google.gwt.dev.GWTShell" classpath="${cp}">
+			<arg line="-out target/www pl.balon.gwt.diagramsexample.GwtDiagramsExample/GwtDiagramsExample.html"/>
+		</java>
+	</target>
+
+	<target name="package" depends="clean,gwt-compile">
+		<zip destfile="target/gwt-diagrams-example-${version}.zip">
+			<fileset dir=".">
+				<include name="target/**/*"/>
+				<include name="src/**/*"/>
+				<include name="lib/**/*"/>
+				<include name=".settings/**/*"/>
+				<include name=".classpath"/>
+				<include name=".project"/>
+				<include name="build.properties"/>
+				<include name="build.xml"/>
+				<include name="gwt-diagrams-example.launch"/>
+				<include name="LICENSE"/>
+				<include name="README"/>
+				<exclude name=".svn/*"/>
+				<exclude name=".svn/**/*"/>
+				<exclude name="**/.svn/*"/>
+				<exclude name="**/.svn/**/*"/>
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="clean">
+		<delete dir="target" defaultexcludes="true" />
+		<delete dir=".gwt-cache" includeemptydirs="true" />
+		<delete dir="tomcat" includeemptydirs="true" />
+	</target>
+
+	<target name="all" depends="gwt-compile"/>
+	<target name="run" depends="gwt-shell"/>
+
+</project>
