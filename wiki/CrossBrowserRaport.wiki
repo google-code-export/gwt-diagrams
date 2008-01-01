@@ -1,9 +1,10 @@
-#summary Cross browser tests raport (25.11.2007)
+#summary Cross browser tests raport for gwt-diagrams-0.1 (01.01.2008)
 #labels Phase-QA,Featured
 
 = Full tests =
 
 || *Browser* || *Rectilinear* || *Bezier* || *Straight* ||
+|| IE 6.0 (6.0.2900.2180) || + || + || + ||
 || IE 7.0 (7.0.5730.11) || + || + || + ||
 || FF 2.0 (2.0.0.9) || + || + || + ||
 || Opera 9 (9.24) || + || + || + ||
@@ -11,8 +12,9 @@
 
 = Browsershots tests =
  * http://browsershots.org/
- * [http://browsershots.org/http://kolos.math.uni.lodz.pl/%7Ebalon/gwt-diagrams-demo/pl.balon.gwt.diagramsexample.GwtDiagramsExample/GwtDiagramsExample.html rectilinear]
+ * [http://browsershots.org/http://kolos.math.uni.lodz.pl/%7Ebalon/gwt-diagrams-demo/pl.balon.gwt.diagramsexample.GwtDiagramsExample/GwtDiagramsExample.html?tab=0 rectilinear]
  * [http://browsershots.org/http://kolos.math.uni.lodz.pl/~balon/gwt-diagrams-demo/pl.balon.gwt.diagramsexample.GwtDiagramsExample/GwtDiagramsExample.html?tab=1 bezier]
+ * [http://browsershots.org/http://kolos.math.uni.lodz.pl/~balon/gwt-diagrams-demo/pl.balon.gwt.diagramsexample.GwtDiagramsExample/GwtDiagramsExample.html?tab=2 straight]
 
 || *Browser* || *Rectilinear* || *Bezier* ||
 || _*FF 2.0.0.9*_ || + || + ||
@@ -29,6 +31,3 @@
 || _*Opera 9.24*_ || + || + ||
 || Opera 8.54 || N/A || - ||
 || Konqueror 3.5 || - || - ||
-|| Iceweasel 2.0.0.8 || + || + ||
-|| Galeon 2.0.2 || + || + ||
-|| Epiphany 2.14 || + || + ||
