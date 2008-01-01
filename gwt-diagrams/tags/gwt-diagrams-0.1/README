@@ -1,0 +1,13 @@
+Welcome,
+
+I. gwt-diagrams build instructions:
+
+	1. Download and install Google Web Toolkit (http://code.google.com/webtoolkit/)
+	2. Edit build.properties and set path to GWT installation directory
+	3. Run ant build through command 'ant'
+	4. Generated jar can be found in target directory
+	
+II. Eclipse project setup
+
+	1. Add in Eclipse classpath variable GWT_HOME pointing to GWT installation directory
+	2. Import project as Java Project	
