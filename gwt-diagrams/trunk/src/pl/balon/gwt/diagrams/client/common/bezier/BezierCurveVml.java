@@ -57,7 +57,10 @@ public class BezierCurveVml extends BezierCurve {
 		DOM.appendChild(RootPanel.get().getElement(), vmlGroup); // hack :(
 		
 		DOM.appendChild(RootPanel.get().getElement(), styledDiv); // hack :(
-		DOM.setStyleAttribute(styledDiv, "display", "none");
+		
+// #13 Bezier/straight connections doesn't work on IE6.0		
+//		DOM.setStyleAttribute(styledDiv, "display", "none");
+		
 		DOM.setElementProperty(styledDiv, "className", "gwt-diagrams-vml-curve");
 
 		DOM.setElementAttribute(vmlCurve, "strokecolor", getComputedStyle(styledDiv, "color"));
@@ -122,6 +125,15 @@ public class BezierCurveVml extends BezierCurve {
 		}
 	}
 
+	/**
+	 * Removes styledDiv from its parent.
+	 * 
+	 * @see pl.balon.gwt.diagrams.client.common.bezier.BezierCurve#remove()
+	 */
+	public void remove() {
+		DOM.removeChild(RootPanel.get().getElement(), styledDiv);
+	}
+	
 	private native boolean initDocument()/*-{
         if (!$doc.namespaces["g_vml_"]) {
           $doc.namespaces.add("g_vml_", "urn:schemas-microsoft-com:vml");

@@ -49,4 +49,11 @@ public class BezierCurve {
 		throw new UnsupportedOperationException("Unsupported browser");
 	}
 
+	/**
+	 * Performs additional operations (if needed) during remove. 
+	 */
+	public void remove() {
+		// NOP
+	}
+
 }

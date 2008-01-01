@@ -93,4 +93,12 @@ public class BezierTwoEndedConnection extends AbstractConnection {
 		
 	}
 
+	/**
+	 * @see pl.balon.gwt.diagrams.client.connection.AbstractConnection#remove()
+	 */
+	public void remove() {
+		curve.remove();
+		super.remove();
+	}
+	
 }
