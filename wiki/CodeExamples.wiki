@@ -1,0 +1,128 @@
+#labels Featured
+== Hello world example ==
+
+Creates and adds to root panel connections between two widgets.
+
+{{{
+public class ExampleEntryPoint implements EntryPoint {
+
+    public void onModuleLoad() {
+
+	// Container for widgets and connections
+	AbsolutePanel panel = new AbsolutePanel();
+	panel.setWidth("100%");
+	panel.setHeight("100%");
+	RootPanel.get().add(panel);
+
+        // elements to connect
+        Widget label1 = new Label("Hello");
+        Widget label2 = new Label("world");
+        panel.add(label1, 100, 100);
+        panel.add(label2, 200, 200);
+
+        // gwt-diagrams stuff
+        Connector c1 = UIObjectConnector.wrap(label1);
+        Connector c2 = UIObjectConnector.wrap(label2);
+        Connection connection = new RectilinearTwoEndedConnection(c1, c2);
+        connection.appendTo(panel);
+
+    }
+}
+}}} 
+[http://gwt-diagrams.googlecode.com/files/helloworld.gif] 
+
+
+
+== Multiple connections example ==
+
+Creates and adds to root panel connections between three widgets.
+This shows ability to connect one widget (Y) with multiple another widgets (X, Z). This example also shows how to add multiple connections between two widgets (Y, Z).
+
+{{{
+public class ExampleEntryPoint implements EntryPoint {
+
+    public void onModuleLoad() {
+
+	// Container for widgets and connections
+	AbsolutePanel panel = new AbsolutePanel();
+	panel.setWidth("100%");
+	panel.setHeight("100%");
+	RootPanel.get().add(panel);
+
+	// elements to connect
+        Widget x = new Label("X");
+        Widget y = new Label("Y");
+        Widget z = new Label("Z");
+        panel.add(x, 100, 100);
+        panel.add(y, 200, 200);
+        panel.add(z, 300, 300);
+
+        // gwt-diagrams stuff
+        Connector c1 = UIObjectConnector.wrap(x);
+        Connector c2 = UIObjectConnector.wrap(y);
+        Connector c3 = UIObjectConnector.wrap(z);
+
+        Connection connection1 = new RectilinearTwoEndedConnection(c1, c2);
+        Connection connection2 = new BezierTwoEndedConnection(c2, c3);
+        Connection connection3 = new StraightTwoEndedConnection(c2, c3);
+
+        connection1.appendTo(panel);
+        connection2.appendTo(panel);
+        connection3.appendTo(panel);
+
+    }
+}
+}}} 
+[http://gwt-diagrams.googlecode.com/files/multiple_example.gif]
+
+
+
+== gwt-dnd integration example ==
+
+{{{
+public class ExampleEntryPoint implements EntryPoint {
+
+    public void onModuleLoad() {
+
+	// Container for widgets and connections
+	AbsolutePanel panel = new AbsolutePanel();
+	panel.setWidth("100%");
+	panel.setHeight("100%");
+	RootPanel.get().add(panel);
+
+	// elements to connect
+        Widget x = new Label("X");
+        Widget y = new Label("Y");
+        panel.add(x, 100, 100);
+        panel.add(y, 200, 200);
+
+        // gwt-diagrams stuff
+        Connector c1 = UIObjectConnector.wrap(x);
+        Connector c2 = UIObjectConnector.wrap(y);
+
+        Connection connection0 = new RectilinearTwoEndedConnection(c1, c2);
+        connection0.appendTo(panel);
+        
+        // gwt-dnd integration sample stuff
+	PickupDragController dragController = new PickupDragController(panel, true) {
+
+	    public BoundaryDropController newBoundaryDropController(AbsolutePanel boundaryPanel, boolean allowDropping) {
+		return new BoundaryDropController(boundaryPanel, allowDropping) {
+			public void onMove(Widget reference, Widget draggable, DragController dragController) {
+				super.onMove(reference, draggable, dragController);
+				UIObjectConnector c = UIObjectConnector.getWrapper(draggable);
+				if (c != null) {
+					c.update();
+				}
+			}
+		};
+	    }
+			
+	};
+
+	dragController.makeDraggable(x);
+	dragController.makeDraggable(y);
+
+    }
+}
+}}} 
