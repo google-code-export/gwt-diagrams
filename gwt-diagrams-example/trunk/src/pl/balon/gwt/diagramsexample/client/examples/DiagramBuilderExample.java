@@ -105,6 +105,7 @@ public class DiagramBuilderExample extends AbstractConnectionsExample {
 					&& !selected.isEmpty()) {
 					for (Iterator i = selected.listIterator(); i.hasNext();) {
 						Widget w = (Widget) i.next();
+						UIObjectConnector.unwrap(w);
 						i.remove();
 						w.removeFromParent();
 					}
