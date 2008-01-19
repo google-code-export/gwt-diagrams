@@ -83,6 +83,33 @@ public class UIObjectConnector extends AbstractConnector {
 	}
 	
 	/**
+	 * Unwrapps specified UIObject (removes wrapper from static registry) 
+	 * 
+	 * @param wrapped
+	 */
+	public static void unwrap(UIObject wrapped){
+		if( wrappersMap.containsKey(wrapped)) {
+			getWrapper(wrapped).unwrap();
+		}
+	}
+	
+	/**
+	 * Unwrapps wrapped UIObject (removes wrapper from static registry)
+	 */
+	public void unwrap(){
+		wrappersMap.remove(wrapped);
+		wrapped = null;
+	}
+	
+	/**
+	 * Disconnects from all connections and unwraps associated widget
+	 */
+	public void remove(){
+		disconnect();
+		unwrap();
+	}
+	
+	/**
 	 * Private constructor
 	 * 
 	 * @param wrapped
@@ -95,6 +122,10 @@ public class UIObjectConnector extends AbstractConnector {
 	 * @see pl.balon.gwt.diagrams.client.connector.Connector#getHeight()
 	 */
 	public int getHeight() {
+		if( wrapped == null ) {
+			throw new IllegalStateException("Wrapped object is null.");
+		}
+		
 		return wrapped.getOffsetHeight();
 	}
 
@@ -102,6 +133,10 @@ public class UIObjectConnector extends AbstractConnector {
 	 * @see pl.balon.gwt.diagrams.client.connector.Connector#getWidth()
 	 */
 	public int getWidth() {
+		if( wrapped == null ) {
+			throw new IllegalStateException("Wrapped object is null.");
+		}
+		
 		return wrapped.getOffsetWidth();
 	}
 	
@@ -109,6 +144,10 @@ public class UIObjectConnector extends AbstractConnector {
 	 * @see pl.balon.gwt.diagrams.client.connector.Connector#getLeft()
 	 */
 	public int getLeft() {
+		if( wrapped == null ) {
+			throw new IllegalStateException("Wrapped object is null.");
+		}
+		
 		int containerOffset = 0;
 		Element parent = DOM.getParent(wrapped.getElement());
 		while( parent!=null ){
@@ -125,6 +164,10 @@ public class UIObjectConnector extends AbstractConnector {
 	 * @see pl.balon.gwt.diagrams.client.connector.Connector#getTop()
 	 */
 	public int getTop() {
+		if( wrapped == null ) {
+			throw new IllegalStateException("Wrapped object is null.");
+		}
+		
 		int containerOffset = 0;
 		Element parent = DOM.getParent(wrapped.getElement());
 		while( parent!=null ){
