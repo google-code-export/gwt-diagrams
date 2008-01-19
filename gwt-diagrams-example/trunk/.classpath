@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/gwt-diagrams-0.1.jar"/>
+	<classpathentry kind="lib" path="lib/gwt-diagrams-0.2-RC00.jar"/>
 	<classpathentry kind="lib" path="lib/gwt-dragdrop-1.2.6.jar"/>
 	<classpathentry kind="var" path="GWT_HOME/gwt-user.jar"/>
 	<classpathentry kind="output" path="bin"/>
