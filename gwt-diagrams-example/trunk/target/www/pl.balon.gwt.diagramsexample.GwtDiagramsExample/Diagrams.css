@@ -35,3 +35,7 @@
 
 .gwt-diagrams-line-horizontal {
 }
+
+.gwt-diagrams-ending {
+	z-index: 1;
+}

@@ -19,6 +19,7 @@
 		<mkdir dir="target"/>
 		<property name="cp" refid="project.class.path"/>
 		<java fork="true" classname="com.google.gwt.dev.GWTCompiler" classpath="${cp}">
+			<jvmarg line="-Xmx128M"/>
 			<arg line="-out target/www pl.balon.gwt.diagramsexample.GwtDiagramsExample"/>
 		</java>
 		<move file="target/www/pl.balon.gwt.diagramsexample.GwtDiagramsExample/index.html" todir="target/www"/>
@@ -32,6 +33,7 @@
 	<target name="gwt-shell">
 		<property name="cp" refid="project.class.path"/>
 		<java fork="true" classname="com.google.gwt.dev.GWTShell" classpath="${cp}">
+			<jvmarg line="-Xmx128M"/>
 			<arg line="-out target/www pl.balon.gwt.diagramsexample.GwtDiagramsExample/GwtDiagramsExample.html"/>
 		</java>
 	</target>

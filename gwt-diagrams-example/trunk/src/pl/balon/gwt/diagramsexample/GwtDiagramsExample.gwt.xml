@@ -4,6 +4,8 @@
 	<inherits name='pl.balon.gwt.diagrams.Diagrams'/>
     <inherits name='com.allen_sauer.gwt.dragdrop.DragAndDrop'/>
 
+    <stylesheet src='style.css'/>
+
 	<entry-point class='pl.balon.gwt.diagramsexample.client.GwtDiagramsExample'/>
 	
 </module>

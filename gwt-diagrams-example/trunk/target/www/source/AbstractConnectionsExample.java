@@ -56,6 +56,11 @@ public abstract class AbstractConnectionsExample extends AbstractExample {
 	private List connections = new ArrayList();
 	
 	/**
+	 * Indicates if this example is already initialized.
+	 */
+	private boolean initialized = false;
+	
+	/**
 	 * Constructor, sets up example.
 	 */
 	public AbstractConnectionsExample() {
@@ -111,9 +116,41 @@ public abstract class AbstractConnectionsExample extends AbstractExample {
 	 * Recalculates and redraws all connections in this example
 	 */
 	public void update(){
+		initializeIfNecessary();
 		for (Iterator i = connections.iterator(); i.hasNext();) {
 			Connection c = (Connection) i.next();
 			c.update();
+		}
+	}
+
+	/**
+	 * Initializes example.
+	 */
+	protected void initializeIfNecessary() {
+		if( !initialized ) {
+			initialized = true;
+			doAttachChildren();
+		}
+	}
+	
+	/**
+	 * Prevents from attaching children when example is not initialized (eg. not
+	 * visible/selected tab) - it's necessary to avoid vml curve problems on IE.
+	 * 
+	 * @see com.google.gwt.user.client.ui.Panel#doAttachChildren()
+	 */
+	protected void doAttachChildren() {
+		if( initialized ) {
+			super.doAttachChildren();
+		}
+	}
+	
+	/**
+	 * @see com.google.gwt.user.client.ui.Widget#onDetach()
+	 */
+	protected void onDetach() {
+		if( initialized ) {
+			super.onDetach();
 		}
 	}
 	

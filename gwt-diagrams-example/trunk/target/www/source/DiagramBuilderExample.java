@@ -184,7 +184,6 @@ public class DiagramBuilderExample extends AbstractConnectionsExample {
 	protected UIObjectConnector createConnector(Label proxy, AbsolutePanel panel) {
 		Label l = new Label(proxy.getText()) {
 			public void onBrowserEvent(Event event) {
-				
 				if( DOM.eventGetType(event) == Event.ONCLICK 
 					&& DOM.eventGetCtrlKey(event)  ){
 					select(this);
@@ -193,6 +192,7 @@ public class DiagramBuilderExample extends AbstractConnectionsExample {
 				super.onBrowserEvent(event);
 			}
 		};
+		l.sinkEvents(Event.ONCLICK);
 		l.setPixelSize(proxy.getOffsetWidth(), proxy.getOffsetHeight());
 		l.addStyleName("example-connector");
 		panel.add(l, proxy.getAbsoluteLeft() - panel.getAbsoluteLeft(), proxy.getAbsoluteTop() - panel.getAbsoluteTop());
