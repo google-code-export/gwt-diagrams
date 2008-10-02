@@ -95,7 +95,19 @@ public abstract class AbstractConnection extends Widget implements Connection {
 	 * @see pl.balon.gwt.diagrams.client.connection.Connection#update()
 	 */
 	public void update(){
-		update(computeConnectionData());
+		if( isAttached() ) {
+			update(computeConnectionData());
+		}
+	}
+
+	protected void onDetach() {
+		super.onDetach();
+		// TODO Implement sth. ?
+	}
+
+	protected void onAttach() {
+		super.onAttach();
+		update();
 	}
 	
 	/**

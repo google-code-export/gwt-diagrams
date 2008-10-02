@@ -23,6 +23,7 @@ import pl.balon.gwt.diagrams.client.connection.data.BezierConnectionData;
 import pl.balon.gwt.diagrams.client.connection.data.ConnectionData;
 import pl.balon.gwt.diagrams.client.connection.data.Point;
 import pl.balon.gwt.diagrams.client.connector.Connector;
+import pl.balon.gwt.diagrams.client.connector.Direction;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Element;
@@ -32,8 +33,7 @@ import com.google.gwt.user.client.Element;
  * 
  * @author Michał Baliński (michal.balinski@gmail.com)
  */
-public class BezierTwoEndedConnection extends AbstractConnection {
-
+public class BezierTwoEndedConnection extends AbstractTwoEndedConnection {
 	/**
 	 * Represents bezier curve. Implementation depends on browser type.
 	 * Instantiated through deferred binding
@@ -45,9 +45,6 @@ public class BezierTwoEndedConnection extends AbstractConnection {
 	 */
 	public BezierTwoEndedConnection(Connector[] toConnect) {
 		super(toConnect);
-		if( toConnect.length != 2 ){
-			throw new IllegalArgumentException("Need exactly two connectors to connect");
-		}
 		setElement(curve.getElement());
 		addStyleName("gwt-diagrams-connection");
 	}
@@ -90,6 +87,39 @@ public class BezierTwoEndedConnection extends AbstractConnection {
 				(Point)bdata.getPoints().get(1),
 				(Point)bdata.getControlPoints().get(0),
 				(Point)bdata.getControlPoints().get(1));
+		
+		// Endings
+		if( getEnding(0)!=null ){
+			Point p = (Point)bdata.getPoints().get(0);
+			Point c = (Point)bdata.getControlPoints().get(0);
+			
+			if( p.left > c.left ){ // RIGHT
+				getEnding(0).update(p.left, p.top, Direction.RIGHT.getAngle());
+			} else if( p.left < c.left ){ // LEFT
+				getEnding(0).update(p.left, p.top, Direction.LEFT.getAngle());
+			} else if( p.top > c.top ){ // DOWN
+				getEnding(0).update(p.left, p.top, Direction.DOWN.getAngle());
+			} else if( p.top < c.top ){ // UP
+				getEnding(0).update(p.left, p.top, Direction.UP.getAngle());
+			}
+			
+		}
+		
+		if( getEnding(1)!=null ){
+			Point p = (Point)bdata.getPoints().get(1);
+			Point c = (Point)bdata.getControlPoints().get(1);
+
+			if( p.left > c.left ){ // RIGHT
+				getEnding(1).update(p.left, p.top, Direction.RIGHT.getAngle());
+			} else if( p.left < c.left ){ // LEFT
+				getEnding(1).update(p.left, p.top, Direction.LEFT.getAngle());
+			} else if( p.top > c.top ){ // DOWN
+				getEnding(1).update(p.left, p.top, Direction.DOWN.getAngle());
+			} else if( p.top < c.top ){ // UP
+				getEnding(1).update(p.left, p.top, Direction.UP.getAngle());
+			}
+
+		}
 		
 	}
 

@@ -69,6 +69,31 @@ public class StraightTwoEndedConnection extends BezierTwoEndedConnection {
 				(Point)data.getPoints().get(1),
 				(Point)data.getPoints().get(0));
 		
+		// Endings
+		if( getEnding(0)!=null ){
+			Point p1 = (Point)data.getPoints().get(0);
+			Point p2 = (Point)data.getPoints().get(1);
+		
+			float tan = ((float)(p2.top-p1.top))/(p2.left - p1.left); 
+			float angle = (float)Math.toDegrees(Math.atan(tan));
+			if( p1.left < p2.left ) {
+				angle += 180f;
+			}
+			getEnding(0).update(p1.left, p1.top, angle+90f);
+		}
+		
+		if( getEnding(1)!=null ){
+			Point p1 = (Point)data.getPoints().get(1);
+			Point p2 = (Point)data.getPoints().get(0);
+
+			float tan = ((float)(p2.top-p1.top))/(p2.left - p1.left); 
+			float angle = (float)Math.toDegrees(Math.atan(tan));
+			if( p1.left < p2.left ) {
+				angle += 180f;
+			}
+			getEnding(1).update(p1.left, p1.top, angle+90f);
+		}
+
 	}
 	
 }

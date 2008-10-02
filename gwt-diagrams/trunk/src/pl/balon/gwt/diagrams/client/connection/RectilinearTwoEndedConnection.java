@@ -24,6 +24,7 @@ import pl.balon.gwt.diagrams.client.connection.calculator.FullRectilinearTwoEnde
 import pl.balon.gwt.diagrams.client.connection.data.ConnectionData;
 import pl.balon.gwt.diagrams.client.connection.data.Point;
 import pl.balon.gwt.diagrams.client.connector.Connector;
+import pl.balon.gwt.diagrams.client.connector.Direction;
 
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
@@ -33,7 +34,7 @@ import com.google.gwt.user.client.Element;
  * 
  * @author Michał Baliński (michal.balinski@gmail.com)
  */
-public class RectilinearTwoEndedConnection extends AbstractConnection {
+public class RectilinearTwoEndedConnection extends AbstractTwoEndedConnection {
 
 	/**
 	 * DOM elements representing connection in browser dom tree
@@ -45,9 +46,6 @@ public class RectilinearTwoEndedConnection extends AbstractConnection {
 	 */
 	public RectilinearTwoEndedConnection(Connector[] toConnect) {
 		super(toConnect);
-		if( toConnect.length != 2 ){
-			throw new IllegalArgumentException("Need exactly two connectors to connect");
-		}
 		setElement(DOM.createDiv());
 		addStyleName("gwt-diagrams-connection");
 	}
@@ -105,7 +103,53 @@ public class RectilinearTwoEndedConnection extends AbstractConnection {
 			DOM.setStyleAttribute(div, "top", Integer.toString( Math.min(start.top, end.top) ));
 			
 			DOM.setElementProperty(div, "className", style);
-			
+
+			// Endings
+			if( i==0 && getEnding(0)!=null ) {
+				if( start.left < end.left ) { // LEFT
+					getEnding(0).update( 
+							Math.min(start.left, end.left), 
+							Math.min(start.top, end.top), 
+							Direction.LEFT.getAngle());
+				} else if( start.left > end.left ) { // RIGHT
+					getEnding(0).update( 
+							Math.max(start.left, end.left), 
+							Math.min(start.top, end.top), 
+							Direction.RIGHT.getAngle());
+				} else if( start.top > end.top ) { // DOWN
+					getEnding(0).update( 
+							Math.min(start.left, end.left), 
+							Math.max(start.top, end.top), 
+							Direction.DOWN.getAngle());
+				} else if( start.top < end.top ) { // UP
+					getEnding(0).update( 
+							Math.min(start.left, end.left), 
+							Math.min(start.top, end.top), 
+							Direction.UP.getAngle());
+				}
+			} else if( i+1 == elements.size() && getEnding(1)!=null ){
+				if( start.left > end.left ) { // LEFT
+					getEnding(1).update( 
+							Math.min(start.left, end.left), 
+							Math.min(start.top, end.top), 
+							Direction.LEFT.getAngle());
+				} else if( start.left < end.left ) { // RIGHT
+					getEnding(1).update( 
+							Math.max(start.left, end.left), 
+							Math.min(start.top, end.top), 
+							Direction.RIGHT.getAngle());
+				} else if( start.top < end.top ) { // DOWN
+					getEnding(1).update( 
+							Math.min(start.left, end.left), 
+							Math.max(start.top, end.top), 
+							Direction.DOWN.getAngle());
+				} else if( start.top > end.top ) { // UP
+					getEnding(1).update( 
+							Math.min(start.left, end.left), 
+							Math.min(start.top, end.top), 
+							Direction.UP.getAngle());
+				}
+			}
 		}
 		
 	}

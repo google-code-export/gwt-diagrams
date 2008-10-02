@@ -24,14 +24,17 @@ package pl.balon.gwt.diagrams.client.connector;
  */
 public class Direction {
 
-    public static final Direction UP = new Direction("UP");
-    public static final Direction DOWN = new Direction("DOWN");
-    public static final Direction LEFT = new Direction("LEFT");
-    public static final Direction RIGHT = new Direction("RIGHT");
+    public static final Direction UP = new Direction("UP", 0.0f);
+    public static final Direction DOWN = new Direction("DOWN", 180.0f);
+    public static final Direction LEFT = new Direction("LEFT", 270.0f);
+    public static final Direction RIGHT = new Direction("RIGHT", 90.0f);
     
     private final String id;
-    private Direction(String id){
+    private final float angle;
+    
+    private Direction(String id, float angle){
         this.id = id;
+        this.angle = angle;
     }
 
     /**
@@ -55,6 +58,13 @@ public class Direction {
     	return this == UP || this == DOWN;
     }
 
+    /**
+     * @return representing angle value
+     */
+    public float getAngle(){
+    	return angle;
+    }
+    
     /**
      * @see java.lang.Object#toString()
      */
